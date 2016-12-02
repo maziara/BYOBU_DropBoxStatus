@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if dropbox running;
+then
+        color=kr
+else
+        color=kg
+fi
+
+if dropbox status | grep -q "Up to date";
+then
+        word=Dbox
+else
+        if dropbox status | grep -q Downloading;
+        then
+                word=DbUP
+        elif dropbox status | grep -q Uploading;
+        then
+                word=DbDN
+        else
+                word=DbER
+        fi
+fi
+
+echo -e "\005{= $color}$word\005{-}";
