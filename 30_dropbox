@@ -13,10 +13,10 @@ then
 else
         if dropbox status | grep -q Downloading;
         then
-                word=DbUP
+                word=DbDN
         elif dropbox status | grep -q Uploading;
         then
-                word=DbDN
+                word=DbUP
         else
                 word=DbER
         fi
